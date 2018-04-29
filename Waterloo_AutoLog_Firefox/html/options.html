@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Waterloo AutoLog Options</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="/css/options.css">
+</head>
+<body>
+<div class="container">
+    <div class="wrapper">
+
+        <!-- Header Start -->
+        <div class="header">
+            <h1>Waterloo AutoLog</h1>
+            <h3>Extension Options</h3>
+        </div>
+        <!-- Header End -->
+
+        <!-- Tab Start -->
+        <div class="nav">
+            <ul>
+                <li data-option-tab-index="0" data-option-tab-name="global" id="nav-tab-0" class="nav-tab active">
+                    General
+                </li>
+                <li data-option-tab-index="1" data-option-tab-name="about" id="nav-tab-1" class="nav-tab">About</li>
+                <li data-option-tab-index="2" data-option-tab-name="privacy" id="nav-tab-2" class="nav-tab">Privacy</li>
+            </ul>
+        </div>
+        <!-- Tab End -->
+
+        <!-- General Start -->
+        <div class="content-container" id="opt-tab-0">
+            <div class="content">
+
+                <!-- Enable autolog -->
+                <div class="category-title">
+                    <h5>Extension Control</h5>
+                </div>
+                <div class="option-group checkbox-group">
+                    <div class="checkbox-slide checkbox-slide-important">
+                        <input type="checkbox" id="opt-global-0-0" data-option-name="GLB_Enabled"
+                               data-option-type="switch">
+                        <label for="opt-global-0-0"></label>
+                    </div>
+                    <label for="opt-global-0-0" class="checkbox-label">Enable Waterloo AutoLog</label>
+                    <a class="option-tip-toggle">?</a>
+                    <div class="option-tip hidden">
+                        <p>This option is the total controller. It can enable / disable all the other options in the
+                            extension. The switch in the popup is synchronized with this one.</p>
+                    </div>
+                </div>
+
+                <!-- User info -->
+                <div class="category-title">
+                    <h5>Login Information</h5>
+                </div>
+                <div class="info-form">
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="user-id"><span class="required">*</span> User ID</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="text" id="user-id" minlength="8" maxlength="8" class="input-box width-100"
+                                   data-option-name="USER_ID" placeholder="8-digit number">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="user-name"><span class="required">*</span> Username</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="text" id="user-name" minlength="4" maxlength="50" class="input-box width-100"
+                                   data-option-name="USER_Name" placeholder="WatIAM Username">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="user-password">Password</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="password" id="user-password" minlength="4" maxlength="50"
+                                   class="input-box width-100" data-option-name="USER_Password" placeholder="Optional">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="user-cardpin">WatCard PIN</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="password" id="user-cardpin" minlength="4" maxlength="50"
+                                   class="input-box width-100" data-option-name="USER_CardPIN" placeholder="Optional">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-9">
+                            <a href="#" class="btn btn-primary" id="user-save">Save</a>
+                            <a href="#" class="btn btn-default" id="user-clear">Clear</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Support List -->
+                <div class="category-title">
+                    <h5>Supported Sites</h5>
+                </div>
+                <p>▷ CAS
+                    <small>(cas.uwaterloo.ca)</small>
+                </p>
+                <p>▷ Quest
+                    <small>(idp.uwaterloo.ca)</small>
+                </p>
+                <p>▷ WatIAM
+                    <small>(idm.uwaterloo.ca)</small>
+                </p>
+                <p>▷ WatCard
+                    <small>(watcard.uwaterloo.ca)</small>
+                </p>
+                <p>▷ ECEWO
+                    <small>(ecewo.uwaterloo.ca)</small>
+                </p>
+                <p>▷ myHRinfo
+                    <small>(myhrinfo.hrms.uwaterloo.ca)</small>
+                </p>
+            </div>
+        </div>
+        <!-- General End -->
+
+        <!-- About Start -->
+        <div class="content-container hidden" id="opt-tab-1">
+            <div class="content">
+
+                <!-- About -->
+                <h2>Waterloo AutoLog</h2>
+                <p>Version <span id="autolog-version"></span></p>
+                <p>Created by Zijian Shao</p>
+                <div>
+                    <a class="btn btn-success" href="https://www.paypal.me/zjshao" target="_blank">Donate</a>
+                    <a class="btn btn-default"
+                       href="https://github.com/SssWind/Waterloo-AutoLog" target="_blank">GitHub</a>
+                    <!--<a class="btn btn-default" href="#" target="_blank">Firefox Add-ons</a>-->
+                </div>
+
+                <!-- Welcome -->
+                <div class="category-title">
+                    <h5>Introduction</h5>
+                </div>
+                <div>
+                    <p>▷ Enter your information and the extension will handle the rest.</p>
+                    <p>▷ You will be automatically logged in every time you access the supported pages.</p>
+                </div>
+
+                <!-- Notes -->
+                <div class="category-title">
+                    <h5>Notes</h5>
+                </div>
+                <div>
+                    <p>▷ Don't use other auto login extensions together to avoid unexpected behaviors</p>
+                    <p>▷ Login entrances may change at any time, thus the extension may not function properly</p>
+                    <p>▷ If you have any questions regarding this extension, please email me at <a
+                            href="mailto:sam.zj.shao@gmail.com?Subject=Waterloo AutoLog Extension">sam.zj.shao@gmail.com</a>
+                    </p>
+                </div>
+
+                <!-- Disclaimers -->
+                <div class="category-title">
+                    <h5>Disclaimers</h5>
+                </div>
+                <div>
+                    <p>▷ This extension has no affiliation with the University of Waterloo</p>
+                    <p>▷ Use this extension at your own responsibility</p>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- About End -->
+
+        <!-- Privacy Start -->
+        <div class="content-container hidden" id="opt-tab-2">
+            <div class="content">
+                <div class="category-title">
+                    <h5>Privacy</h5>
+                </div>
+                <p>The extension do not track any of your information</p>
+                <p>All information are stored 100% locally in your browser.</p>
+                <p>Password and WatCard PIN are encrypted before stored. The random key used for
+                    encryption is
+                    automatically generated after installation.</p>
+                <p>For your account safety, do not use this extension on any public computers.</p>
+                <p>The original code of this extension is not encrypted, you can view it on GitHub or in your
+                    browser's extension folder (Google the tutorial).</p>
+            </div>
+        </div>
+        <!-- Privacy End -->
+
+    </div>
+</div>
+
+<!-- Footer Start -->
+<div class="copyright">Created by Zijian Shao</div>
+<!-- Footer End -->
+
+<!-- Toast Start -->
+<div class="autolog-toast autolog-toast-hidden" id="autolog-toast">Options Saved</div>
+<!-- Toast End -->
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/configs.js"></script>
+<script type="text/javascript" src="../js/hash.js"></script>
+<script type="text/javascript" src="../js/options.js"></script>
+
+</body>
+</html>

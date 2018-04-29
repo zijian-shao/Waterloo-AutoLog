@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Waterloo AutoLog Options</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="/css/popup.css">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="autolog-icon"></div>
+    <h1 class="title">Waterloo AutoLog</h1>
+    <h4 class="subtitle">Extension Options</h4>
+    <div class="autolog-option-container">
+        <div class="autolog-option-group">
+            <p class="autolog-option-label">Enable</p>
+            <div class="autolog-option-slide">
+                <input type="checkbox" id="enable-autolog">
+                <label for="enable-autolog"></label>
+            </div>
+        </div>
+        <hr class="autolog-option-hr">
+        <div class="autolog-option-group">
+            <p class="autolog-option-link" id="more-options">More Options</p>
+        </div>
+    </div>
+</div>
+
+<div class="autolog-toast autolog-toast-hidden" id="autolog-toast">Options Saved. Refresh to apply any changes.</div>
+
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/configs.js"></script>
+<script type="text/javascript" src="/js/popup.js"></script>
+
+</body>
+</html>
