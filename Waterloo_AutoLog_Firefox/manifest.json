@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Waterloo AutoLog",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Zijian Shao",
   "background": {
     "scripts": [
@@ -71,9 +71,6 @@
     "*://myhrinfo.hrms.uwaterloo.ca/*"
   ],
   "short_name": "Waterloo AutoLog",
-  "web_accessible_resources": [
-    "img/*"
-  ],
   "applications": {
     "gecko": {
       "id": "waterlooautolog@zijianshao.com",
