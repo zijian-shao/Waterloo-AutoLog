@@ -154,6 +154,7 @@ function initOptions() {
         $('input[id^="user-"]').on('focus', function () {
             $(this).removeClass('input-box-error');
         });
+
         $('#user-save').on('click', function (e) {
             e.preventDefault();
             var id = $('#user-id');
@@ -223,6 +224,17 @@ function initOptions() {
                 obj['USER_CardPIN'] = '';
 
                 saveOption(obj);
+            }
+        });
+
+        $('#user-id, #user-name,#user-password,#user-cardpin').bind('keydown', function (event) {
+            if (event.ctrlKey || event.metaKey) {
+                switch (String.fromCharCode(event.which).toLowerCase()) {
+                    case 's':
+                        event.preventDefault();
+                        $('#user-save').trigger('click');
+                        break;
+                }
             }
         });
     }

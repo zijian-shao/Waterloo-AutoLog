@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Waterloo AutoLog",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Zijian Shao",
   "background": {
     "persistent": false,
@@ -71,8 +71,5 @@
     "*://watcard.uwaterloo.ca/*",
     "*://myhrinfo.hrms.uwaterloo.ca/*"
   ],
-  "short_name": "Waterloo AutoLog",
-  "web_accessible_resources": [
-    "img/*"
-  ]
+  "short_name": "Waterloo AutoLog"
 }
