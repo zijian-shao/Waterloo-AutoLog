@@ -691,6 +691,54 @@ hr {
     border-color: #2fa341;
 }
 
+.section-0 {
+    padding-bottom: 50px;
+}
+
+.rec-container {
+    margin: 50px auto 0;
+    padding-top: 50px;
+    width: 700px;
+    border-top: 2px solid #eee;
+    font-size: 14px;
+}
+
+.rec-item {
+    width: 33%;
+    display: inline-block;
+    float: left;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.rec-icon {
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+.rec-icon > img {
+    width: 100%;
+}
+
+.rec-info {
+    float: left;
+    width: calc(100% - 60px);
+    margin-left: 8px;
+}
+
+.rec-title {
+    color: #000;
+    font-weight: bold;
+}
+
+.rec-intro {
+    color: #999;
+    font-weight: lighter;
+    font-size: 12px;
+}
+
 @media (max-width: 1200px) {
     .sidebar {
         widtH: 240px;
