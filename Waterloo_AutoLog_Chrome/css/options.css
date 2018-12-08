@@ -583,9 +583,9 @@ hr {
     border-radius: 50px;
     outline: none;
     font-size: 18px;
-    -webkit-box-shadow: none !important;
-    -moz-box-shadow: none !important;
-    box-shadow: none !important;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -ms-transition: all 0.2s ease;
@@ -594,7 +594,10 @@ hr {
 }
 
 .input-box:focus {
-    border-color: #999;
+    border-color: #fab525;
+    -webkit-box-shadow:  0 0 0 1px #fab525;
+    -moz-box-shadow:  0 0 0 1px #fab525;
+    box-shadow:  0 0 0 1px #fab525;
 }
 
 .input-box-error {
