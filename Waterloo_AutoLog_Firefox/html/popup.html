@@ -11,26 +11,31 @@
 
 <body>
 
-<div class="container">
-    <div class="autolog-icon"></div>
-    <h1 class="title">Waterloo AutoLog</h1>
-    <h4 class="subtitle">Extension Options</h4>
-    <div class="autolog-option-container">
-        <div class="autolog-option-group">
-            <p class="autolog-option-label">Enable</p>
-            <div class="autolog-option-slide">
-                <input type="checkbox" id="enable-autolog">
-                <label for="enable-autolog"></label>
-            </div>
+<div class="header">
+    <div class="logo"></div>
+</div>
+<div class="content">
+    <div class="btn btn-green btn-control">
+        <div class="checkbox-slide">
+            <input type="checkbox" id="enable-autolog">
+            <label for="enable-autolog"></label>
         </div>
-        <hr class="autolog-option-hr">
-        <div class="autolog-option-group">
-            <p class="autolog-option-link" id="more-options">More Options</p>
-        </div>
+        <div class="btn-icon"><img src="../img/popup-icon-globe.png" alt="Control"></div>
+        <div class="btn-text">Enable AutoLog</div>
+        <label for="enable-autolog"></label>
+    </div>
+    <div class="btn btn-yellow" id="more-options">
+        <div class="btn-icon"><img src="../img/popup-icon-cog.png" alt="Settings"></div>
+        <div class="btn-text">Account Settings</div>
     </div>
 </div>
+<div class="footer">
+    <div class="report">Extension didn't work? <span class="link" id="report-bug">Report issue</span></div>
+</div>
 
-<div class="autolog-toast autolog-toast-hidden" id="autolog-toast">Options Saved. Refresh to apply any changes.</div>
+<div class="autolog-toast autolog-toast-hidden" id="autolog-toast">
+    Refresh for the changes to take effect.
+</div>
 
 <script type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript" src="/js/configs.js"></script>

@@ -1,5 +1,28 @@
 function initOptions() {
 
+    function showToast(content) {
+        var tst = $('#autolog-toast');
+        if (content !== undefined) {
+            tst.html(content);
+        } else {
+            tst.html('Options Saved');
+        }
+
+        tst.removeClass('autolog-toast-hidden');
+
+        window.clearTimeout(timeoutHandle);
+        timeoutHandle = setTimeout(function () {
+            tst.addClass('autolog-toast-hidden');
+        }, 2000);
+    }
+
+
+    function onHashChange() {
+        var hash = window.location.hash.substring(1);
+        if (!hash.length) hash = 'account';
+        $('li[data-option-tab-name = "' + hash + '"]').trigger('click');
+    }
+
     function restoreOptions() {
 
         var configs = getOptionListDefault();
@@ -39,12 +62,7 @@ function initOptions() {
 
         browser.storage.local.set(obj, function () {
 
-            $('#autolog-toast').removeClass('autolog-toast-hidden');
-
-            window.clearTimeout(timeoutHandle);
-            timeoutHandle = setTimeout(function () {
-                $('#autolog-toast').addClass('autolog-toast-hidden');
-            }, 1000);
+            showToast();
 
             if ($.type(callback) === 'function') {
                 callback();
@@ -106,13 +124,11 @@ function initOptions() {
         }
     }
 
-    function onHashChange() {
-        var hash = window.location.hash.substring(1);
-        if (!hash.length) hash = 'global';
-        $('li[data-option-tab-name = "' + hash + '"]').trigger('click');
-    }
 
     function bindEvents() {
+
+        var allowHashChange = true;
+
         // event
         $('input').on('change', function () {
             onOptionChange($(this));
@@ -130,11 +146,11 @@ function initOptions() {
             $('#nav-tab-' + prevTabID).removeClass('active');
             $(this).addClass('active');
 
-            $('#opt-tab-' + prevTabID).fadeOut(200, function () {
-                $('#opt-tab-' + prevTabID).addClass('hidden');
-                $('#opt-tab-' + thisTabID).fadeIn(200).removeClass('hidden');
-            });
-
+            allowHashChange = false;
+            window.scrollTo(0, $('#opt-tab-' + thisTabID).offset().top);
+            setTimeout(function () {
+                allowHashChange = true;
+            }, 200);
 
             window.location.hash = $(this).attr('data-option-tab-name');
 
@@ -237,9 +253,29 @@ function initOptions() {
                 }
             }
         });
+
+        // scroll
+        $(window).on('scroll', function () {
+            if (!allowHashChange)
+                return;
+
+            var top = $(window).scrollTop();
+            var currID = 0;
+            $('.section').each(function (index, elem) {
+                if ($(elem).offset().top + $(elem).outerHeight() > top) {
+                    currID = $(this).attr('data-option-index');
+                    return false;
+                }
+            });
+
+            $('.nav-tab').removeClass('active');
+            $('#nav-tab-' + currID).addClass('active');
+
+            window.location.hash = $('#nav-tab-' + currID).attr('data-option-tab-name');
+        });
     }
 
-    $(window).load(function () {
+    $(window).on('load',function (e) {
 
         restoreOptions();
 
