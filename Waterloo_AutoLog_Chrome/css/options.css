@@ -497,43 +497,23 @@ hr {
     background-size: contain;
     text-indent: -999px;
     z-index: 3;
+    border-radius: 50%;
     cursor: pointer;
 }
 
 .control-btn {
-    opacity: 1;
-}
-
-.control-btn:after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    z-index: 2;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.control-btn:checked:after {
-    background: #fff;
+    visibility: hidden;
 }
 
 .control-btn:checked + label {
+    background-color: #fff;
     background-image: url(../img/options-icon-on.png);
 }
 
-.control-btn:not(:checked):after {
-    background: #fab525;
-    border: 4px solid #fff;
-}
-
 .control-btn:not(:checked) + label {
+    background-color: #fab525;
     background-image: url(../img/options-icon-off.png);
+    border: 4px solid #fff;
 }
 
 .new-tag {
@@ -595,9 +575,9 @@ hr {
 
 .input-box:focus {
     border-color: #fab525;
-    -webkit-box-shadow:  0 0 0 1px #fab525;
-    -moz-box-shadow:  0 0 0 1px #fab525;
-    box-shadow:  0 0 0 1px #fab525;
+    -webkit-box-shadow: 0 0 0 1px #fab525;
+    -moz-box-shadow: 0 0 0 1px #fab525;
+    box-shadow: 0 0 0 1px #fab525;
 }
 
 .input-box-error {
