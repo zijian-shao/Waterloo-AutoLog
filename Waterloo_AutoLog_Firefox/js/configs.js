@@ -7,7 +7,13 @@ function getOptionListDefault() {
         'USER_ID': '',
         'USER_Name': '',
         'USER_Password': '',
-        'USER_CardPIN': ''
+        'USER_CardPIN': '',
+        'SITE_CAS': true,
+        'SITE_IDP': true,
+        'SITE_IDM': true,
+        'SITE_WATCARD': true,
+        'SITE_ECEWO': true,
+        'SITE_MYHRINFO': true
     };
 
     return obj;

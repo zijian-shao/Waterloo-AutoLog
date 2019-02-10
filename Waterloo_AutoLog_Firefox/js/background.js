@@ -17,10 +17,9 @@ function onInstall(details) {
         var key = randomString(getRandomInt(20) + 10);
         browser.storage.local.set({'GLB_HashKey': key}, function () {
             browser.tabs.create({
-                url: browser.runtime.getURL('') + 'html/options.html'
+                url: browser.runtime.getURL('/html/options.html?welcome=show')
             });
         });
-
     }
 }
 
