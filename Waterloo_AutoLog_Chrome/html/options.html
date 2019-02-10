@@ -18,7 +18,7 @@
             <li data-option-tab-index="0" data-option-tab-name="account" id="nav-tab-0" class="nav-tab active">
                 Account
             </li>
-            <li data-option-tab-index="1" data-option-tab-name="sites" id="nav-tab-1" class="nav-tab">Supported Sites
+            <li data-option-tab-index="1" data-option-tab-name="sites" id="nav-tab-1" class="nav-tab">Sites
             </li>
             <li data-option-tab-index="2" data-option-tab-name="privacy" id="nav-tab-2" class="nav-tab">Privacy</li>
             <li data-option-tab-index="3" data-option-tab-name="about" id="nav-tab-3" class="nav-tab">About</li>
@@ -103,34 +103,76 @@
             <div class="section-title">
                 <div class="icon"><img src="../img/options-icon-globe.png" alt="Supported Sites"></div>
                 <div class="text">
-                    <div class="title">Supported Sites</div>
-                    <div class="subtitle">Automatic login will be applied to the following sites</div>
+                    <div class="title">Sites</div>
+                    <div class="subtitle">Automatic login will be applied to the enabled sites</div>
                 </div>
             </div>
             <div class="section-content">
                 <div class="site">
+                    <div class="checkbox-group">
+                        <div class="checkbox-slide">
+                            <input type="checkbox" id="opt-site-0-0" data-option-name="SITE_CAS"
+                                   data-option-type="switch">
+                            <label for="opt-site-0-0"></label>
+                        </div>
+                    </div>
+                    <div class="name">Central Authentication Service</div>
                     <div class="addr">cas.uwaterloo.ca</div>
-                    Central Authentication Service
                 </div>
                 <div class="site">
+                    <div class="checkbox-group">
+                        <div class="checkbox-slide">
+                            <input type="checkbox" id="opt-site-0-1" data-option-name="SITE_IDP"
+                                   data-option-type="switch">
+                            <label for="opt-site-0-1"></label>
+                        </div>
+                    </div>
+                    <div class="name">SAML Identity Provider</div>
                     <div class="addr">idp.uwaterloo.ca</div>
-                    SAML Identity Provider
                 </div>
                 <div class="site">
+                    <div class="checkbox-group">
+                        <div class="checkbox-slide">
+                            <input type="checkbox" id="opt-site-0-2" data-option-name="SITE_IDM"
+                                   data-option-type="switch">
+                            <label for="opt-site-0-2"></label>
+                        </div>
+                    </div>
+                    <div class="name">Identity and Access Management</div>
                     <div class="addr">idm.uwaterloo.ca</div>
-                    Identity and Access Management
                 </div>
                 <div class="site">
+                    <div class="checkbox-group">
+                        <div class="checkbox-slide">
+                            <input type="checkbox" id="opt-site-0-3" data-option-name="SITE_WATCARD"
+                                   data-option-type="switch">
+                            <label for="opt-site-0-3"></label>
+                        </div>
+                    </div>
+                    <div class="name">WatCard System</div>
                     <div class="addr">watcard.uwaterloo.ca</div>
-                    WatCard System
                 </div>
                 <div class="site">
+                    <div class="checkbox-group">
+                        <div class="checkbox-slide">
+                            <input type="checkbox" id="opt-site-0-4" data-option-name="SITE_ECEWO"
+                                   data-option-type="switch">
+                            <label for="opt-site-0-4"></label>
+                        </div>
+                    </div>
+                    <div class="name">ECEWO Applications</div>
                     <div class="addr">ecewo.uwaterloo.ca</div>
-                    ECEWO Applications
                 </div>
                 <div class="site">
+                    <div class="checkbox-group">
+                        <div class="checkbox-slide">
+                            <input type="checkbox" id="opt-site-0-5" data-option-name="SITE_MYHRINFO"
+                                   data-option-type="switch">
+                            <label for="opt-site-0-5"></label>
+                        </div>
+                    </div>
+                    <div class="name">myHRinfo Portal</div>
                     <div class="addr">myhrinfo.uwaterloo.ca</div>
-                    myHRinfo Portal
                 </div>
             </div>
         </div>
@@ -144,21 +186,31 @@
                 <div class="icon"><img src="../img/options-icon-lock.png" alt="Privacy"></div>
                 <div class="text">
                     <div class="title">Privacy</div>
-                    <div class="subtitle">We do our best to protect your account information</div>
+                    <div class="subtitle">Keep your Waterloo account safe</div>
                 </div>
             </div>
             <div class="section-content">
                 <div class="paragraph">
                     <p>Waterloo AutoLog does not track any of your information.</p>
-                    <p>Everything you entered here is stored 100% locally in your browser and is not synced with
-                        your
-                        browser account.</p>
+                    <p>Everything you entered here is stored 100% locally in the computer and is not synced with
+                        your browser account.</p>
                     <p>Password and WatCard PIN are encrypted before saving. The random key used for encryption was
-                        randomly
-                        generated after installation.</p>
-                    <p>For your account safety, do not use this extension on any public computers.</p>
+                        randomly generated after installation.</p>
                     <p>You can check the source code on GitHub at any time. See related links in the section
                         below.</p>
+                    <hr>
+                    <p>The extension uses "chrome.local.storage" to store your settings locally. The data file is
+                        located in <strong>Profile Path</strong>.</p>
+                    <p>To check the location, visit <strong>chrome://version</strong>. The default value on Windows 10
+                        should be like this: <br>
+                        <span class="break-word"><strong>C:\Users\<span style="color:#fab525">user_name</span>\AppData\Local\Google\Chrome\User Data\Default</strong></span>.
+                    </p>
+                    <p>For lab computers, <span class="break-word"><strong>C:\Users\<span style="color:#fab525">user_name</span></strong></span>
+                        and its sub-directories can only be accessed by yourself and the IST administrators. If the
+                        profile is stored under this directory, then you may use this extension. Otherwise do not.</p>
+                    <p>For library computers or any other public computers, DO NOT use this extension on these
+                        devices.</p>
+
                 </div>
             </div>
         </div>
@@ -197,8 +249,7 @@
                     <p>If you have any questions regarding this extension, please email me at <a
                             href="mailto:sam.zj.shao@gmail.com?Subject=Waterloo AutoLog Extension">sam.zj.shao@gmail.com</a>
                         or
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc8teQisXY9j7mGFWwlNgna5qLqi3kjh31R3iR742oQpJ0fOA/viewform"
-                           target="_blank">submit your feedback online</a>.
+                        <a href="#" target="_blank" id="feedback-link">submit your feedback online</a>.
                     </p>
                 </div>
 

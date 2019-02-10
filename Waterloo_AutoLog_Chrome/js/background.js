@@ -16,9 +16,10 @@ function onInstall(details) {
     if (details.reason === 'install') {
         var key = randomString(getRandomInt(20) + 10);
         chrome.storage.local.set({'GLB_HashKey': key}, function () {
-            chrome.runtime.openOptionsPage();
+            chrome.tabs.create({
+                url: chrome.runtime.getURL('/html/options.html?welcome=show')
+            });
         });
-
     }
 }
 

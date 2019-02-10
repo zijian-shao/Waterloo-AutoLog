@@ -14,7 +14,11 @@ function loginCAS() {
 
 function loginQuest() {
     var form = $('form[method="post"]');
-    if (!form.length || !form.attr('action').match(/\/idp\/profile\/SAML2\/Unsolicited\/SSO/gi))
+    if (!form.length ||
+        (!form.attr('action').match(/\/idp\/profile\/SAML2\/Unsolicited\/SSO/gi)
+            && !form.attr('action').match(/\/idp\/profile\/SAML2\/Redirect\/SSO/gi)
+        )
+    )
         return;
 
     $('#username').val(options.USER_Name);
@@ -177,22 +181,25 @@ function initAutoLogIdle() {
     if (options.USER_Name == '' || options.USER_Password == '')
         return;
 
-    if (currURL.match(/cas\.uwaterloo\.ca\/cas\/login/gi)) {
+    if (currURL.match(/cas\.uwaterloo\.ca\/cas\/login/gi) && options.SITE_CAS) {
         loginCAS();
     }
-    else if (currURL.match(/idp\.uwaterloo\.ca\/idp\/profile\/SAML2\/Unsolicited\/SSO/gi)) {
+    else if (
+        (currURL.match(/idp\.uwaterloo\.ca\/idp\/profile\/SAML2\/Unsolicited\/SSO/gi)
+            || currURL.match(/idp\.uwaterloo\.ca\/idp\/profile\/SAML2\/Redirect\/SSO/gi))
+        && options.SITE_IDP) {
         loginQuest();
     }
-    else if (currURL.match(/idm\.uwaterloo\.ca\/watiam\/login\.js/gi)) {
+    else if (currURL.match(/idm\.uwaterloo\.ca\/watiam\/login\.js/gi) && options.SITE_IDM) {
         loginWatIAM();
     }
-    else if (currURL.match(/ecewo\.uwaterloo\.ca/gi)) {
+    else if (currURL.match(/ecewo\.uwaterloo\.ca/gi) && options.SITE_ECEWO) {
         loginECEWO();
     }
-    else if (currURL.match(/watcard\.uwaterloo\.ca\/OneWeb\/Account\/LogOn/gi)) {
+    else if (currURL.match(/watcard\.uwaterloo\.ca\/OneWeb\/Account\/LogOn/gi) && options.SITE_WATCARD) {
         loginWatCard();
     }
-    else if (currURL.match(/myhrinfo\.hrms\.uwaterloo\.ca\/psp\/SS\//gi)) {
+    else if (currURL.match(/myhrinfo\.hrms\.uwaterloo\.ca\/psp\/SS\//gi) && options.SITE_MYHRINFO) {
         loginMyHRinfo();
     }
 
