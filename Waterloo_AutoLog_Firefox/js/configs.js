@@ -19,3 +19,18 @@ function getOptionListDefault() {
     return obj;
 
 }
+
+function getLink(key) {
+    var list = {
+        darklightStore: 'https://addons.mozilla.org/firefox/addon/learn-darklight/',
+        azureStore: 'https://addons.mozilla.org/firefox/addon/waterlooworks-azure/',
+        autologStore: 'https://addons.mozilla.org/firefox/addon/waterloo-autolog/',
+        raspberryStore: 'https://addons.mozilla.org/firefox/addon/quest-raspberry/',
+        feedback: 'https://docs.google.com/forms/d/e/1FAIpQLSf3Wl_Jz8vKXw1xKaFEyeSqQr_wvTaAqazaBgcRoxnhhJG4Xw/viewform?usp=pp_url&entry.332394019=@@extVersion@@&entry.1864752170=@@browser@@&entry.413002758=@@os@@',
+        officialWebsite: 'https://www.zijianshao.com/autolog/',
+        github: 'https://github.com/SssWind/Waterloo-AutoLog',
+        donate: 'https://www.paypal.me/zjshao',
+        mailTo: 'mailto:sam.zj.shao@gmail.com?Subject=Waterloo Autolog Extension'
+    };
+    return list[key];
+}

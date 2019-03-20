@@ -31,12 +31,12 @@ function initPopup() {
             return {name: M[0], version: M[1]};
         }
 
-        var urlText = 'https://docs.google.com/forms/d/e/1FAIpQLSf3Wl_Jz8vKXw1xKaFEyeSqQr_wvTaAqazaBgcRoxnhhJG4Xw/viewform?usp=pp_url' +
-            '&entry.332394019=' + encodeURI(browser.runtime.getManifest().version) +
-            '&entry.1864752170=' + encodeURI(_getBrowser().name + ' ' + _getBrowser().version) +
-            '&entry.413002758=' + encodeURI(_getOS());
+        var urlTpl = getLink('feedback');
+        urlTpl = urlTpl.replace('@@extVersion@@', encodeURI(browser.runtime.getManifest().version));
+        urlTpl = urlTpl.replace('@@browser@@', encodeURI(_getBrowser().name + ' ' + _getBrowser().version));
+        urlTpl = urlTpl.replace('@@os@@', encodeURI(_getOS()));
 
-        return urlText;
+        return urlTpl;
     }
 
     browser.storage.local.get({

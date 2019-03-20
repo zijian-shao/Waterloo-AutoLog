@@ -1,3 +1,5 @@
+var options;
+
 function randomString(len) {
     if (!Number.isInteger(len))
         return null;
@@ -32,13 +34,18 @@ function onUpdate(oldVer, newVer) {
     });
 }
 
+function handleTabChange(tabId, changeInfo, tab) {
+    if (changeInfo && changeInfo.status && changeInfo.status === 'complete') {
+
+    }
+}
+
 function initBackground() {
 
     console.log('Welcome to Waterloo AutoLog!');
     browser.runtime.onInstalled.addListener(onInstall);
 
     var configs = getOptionListDefault();
-    var options;
 
     browser.storage.local.get(configs, function (items) {
         options = items;
@@ -47,24 +54,73 @@ function initBackground() {
 
     browser.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
-        // request = {action: '', data: {type:'', content:''}}
-        var obj = {};
+        // execute script
+        if (request.action == 'executeScript') {
 
-        if (request.action == 'getDetails') {
-            obj = browser.runtime.getManifest();
+            // request.data = {code:'', allFrames:false, frameId:123};
+            function _executeScript(obj, func) {
+                if (typeof func === 'function')
+                    browser.tabs.executeScript(sender.tab.id, obj, function () {
+                        func();
+                    });
+                else
+                    browser.tabs.executeScript(sender.tab.id, obj);
+            }
+
+            if (Array.isArray(request.data)) {
+                for (var i in request.data) {
+                    _executeScript(request.data[i], sendResponse);
+                }
+            } else {
+                _executeScript(request.data, sendResponse);
+            }
+
         }
 
+        // inject css
+        else if (request.action == 'insertCSS') {
+
+            function _insertCSS(obj, func) {
+                if (typeof func === 'function')
+                    browser.tabs.insertCSS(sender.tab.id, obj, function () {
+                        func();
+                    });
+                else
+                    browser.tabs.insertCSS(sender.tab.id, obj);
+            }
+
+            if (Array.isArray(request.data)) {
+                for (var i in request.data) {
+                    _insertCSS(request.data[i], sendResponse);
+                }
+            } else {
+                _insertCSS(request.data, sendResponse);
+            }
+
+        }
+
+        // app.getDetails
+        else if (request.action == 'getDetails' || request.action == 'getManifest') {
+
+            var obj = browser.runtime.getManifest();
+            if (typeof sendResponse === 'function') sendResponse(obj);
+
+        }
+
+        // open new tab
         else if (request.action == 'createTab') {
-            browser.tabs.create({
-                'url': request.data.url
-            });
-        }
 
-        if (typeof sendResponse === 'function') {
-            sendResponse(obj);
+            request.data['index'] = sender.tab.index + 1;
+            browser.tabs.create(request.data);
+
+            if (typeof sendResponse === 'function') sendResponse();
+
         }
 
     });
+
+    // browser.tabs.onUpdated.addListener(handleTabChange);
+    // browser.tabs.onCreated.addListener(handleTabChange);
 
 }
 

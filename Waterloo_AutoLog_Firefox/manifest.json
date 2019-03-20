@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Waterloo AutoLog",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Zijian Shao",
   "background": {
     "scripts": [
@@ -35,20 +35,6 @@
         "*://myhrinfo.hrms.uwaterloo.ca/*"
       ],
       "run_at": "document_start"
-    },
-    {
-      "js": [
-        "js/init_idle.js"
-      ],
-      "matches": [
-        "*://cas.uwaterloo.ca/*",
-        "*://idp.uwaterloo.ca/*",
-        "*://idm.uwaterloo.ca/*",
-        "*://ecewo.uwaterloo.ca/*",
-        "*://watcard.uwaterloo.ca/*",
-        "*://myhrinfo.hrms.uwaterloo.ca/*"
-      ],
-      "run_at": "document_idle"
     }
   ],
   "description": "Automatic login for Quest, WaterlooWorks, Learn, WatIAM, WatCard, myHRinfo and many other campus systems.",
