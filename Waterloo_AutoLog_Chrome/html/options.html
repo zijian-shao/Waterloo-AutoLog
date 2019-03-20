@@ -62,8 +62,7 @@
             </div>
         </div>
         <div class="rec-container">
-            <a href="https://chrome.google.com/webstore/detail/learn-darklight/lhodieepeghcemhpbloffmljoklaklho"
-               target="_blank">
+            <a data-href="darklightStore" target="_blank">
                 <div class="rec-item">
                     <div class="rec-icon"><img src="../img/options-rec-learn.png" alt="Learn Darklight"></div>
                     <div class="rec-info">
@@ -72,8 +71,7 @@
                     </div>
                 </div>
             </a>
-            <a href="https://chrome.google.com/webstore/detail/waterlooworks-azure/peeaakkcmdoeljddgdkcailflcballmm"
-               target="_blank">
+            <a data-href="azureStore" target="_blank">
                 <div class="rec-item">
                     <div class="rec-icon"><img src="../img/options-rec-azure.png" alt="WaterlooWorks Azure">
                     </div>
@@ -83,8 +81,7 @@
                     </div>
                 </div>
             </a>
-            <a href="https://chrome.google.com/webstore/detail/quest-raspberry/ifhnmgllkaeebiklhakndljclagikoak"
-               target="_blank">
+            <a data-href="raspberryStore" target="_blank">
                 <div class="rec-item">
                     <div class="rec-icon"><img src="../img/options-rec-quest.png" alt="Quest Raspberry"></div>
                     <div class="rec-info">
@@ -199,18 +196,19 @@
                     <p>You can check the source code on GitHub at any time. See related links in the section
                         below.</p>
                     <hr>
-                    <p>The extension uses "chrome.local.storage" to store your settings locally. The data file is
-                        located in <strong>Profile Path</strong>.</p>
-                    <p>To check the location, visit <strong>chrome://version</strong>. The default value on Windows 10
-                        should be like this: <br>
+                    <p>The extension uses "chrome.local.storage" to store your settings locally in <strong>Profile
+                        Path</strong>.</p>
+                    <p>Visit <strong>chrome://version</strong> to get detailed information.</p>
+                    <p>The default profile on Windows 10 is located at (depends on system configuration):<br>
                         <span class="break-word"><strong>C:\Users\<span style="color:#fab525">user_name</span>\AppData\Local\Google\Chrome\User Data\Default</strong></span>.
                     </p>
                     <p>For lab computers, <span class="break-word"><strong>C:\Users\<span style="color:#fab525">user_name</span></strong></span>
-                        and its sub-directories can only be accessed by yourself and the IST administrators. If the
-                        profile is stored under this directory, then you may use this extension. Otherwise do not.</p>
-                    <p>For library computers or any other public computers, DO NOT use this extension on these
-                        devices.</p>
-
+                        or any private storage space (e.g. <strong>N:\</strong>) can only be accessed by yourself and
+                        the IST administrators. If your profile is stored under these locations, you may use this
+                        extension. Otherwise do not.</p>
+                    <p>For library computers or any other public computers, DO NOT use this extension.</p>
+                    <hr>
+                    <p>After you remove this extension, all the data is automatically cleared.</p>
                 </div>
             </div>
         </div>
@@ -229,27 +227,21 @@
             </div>
             <div class="section-content">
                 <!-- Links -->
-                <a class="btn btn-success inline-block" href="https://www.paypal.me/zjshao" target="_blank">Donate</a>
-                <a class="btn btn-primary inline-block"
-                   href="https://github.com/SssWind/Waterloo-AutoLog" target="_blank">GitHub</a>
-                <a class="btn btn-primary inline-block"
-                   href="https://chrome.google.com/webstore/detail/waterloo-autolog/ncpmlgiinkikhgijoplpnjggobinhkpl"
-                   target="_blank">Chrome Web Store</a>
+                <a class="btn btn-success inline-block" data-href="donate" target="_blank">Donate</a>
+                <a class="btn btn-primary inline-block" data-href="github" target="_blank">GitHub</a>
+                <a class="btn btn-primary inline-block" data-href="autologStore" target="_blank">Chrome Web Store</a>
 
                 <hr>
 
                 <!-- Notes -->
                 <div class="group-title">Notes</div>
                 <div class="paragraph">
-                    <p>If you like this extension, please <a
-                            href="https://chrome.google.com/webstore/detail/waterloo-autolog/ncpmlgiinkikhgijoplpnjggobinhkpl"
-                            target="_blank">rate and leave a comment</a> in Chrome Web Store.</p>
+                    <p>If you like this extension, please <a data-href="autologStore" target="_blank">rate and leave a
+                        comment</a> in Chrome Web Store.</p>
                     <p>Don't use other auto login extensions together to avoid unexpected behaviors.</p>
                     <p>Login entrances may change at any time, thus the extension may not function properly.</p>
-                    <p>If you have any questions regarding this extension, please email me at <a
-                            href="mailto:sam.zj.shao@gmail.com?Subject=Waterloo AutoLog Extension">sam.zj.shao@gmail.com</a>
-                        or
-                        <a href="#" target="_blank" id="feedback-link">submit your feedback online</a>.
+                    <p>If you have any questions regarding this extension, please email me at <a data-href="mailTo">sam.zj.shao@gmail.com</a>
+                        or <a href="#" target="_blank" id="feedback-link">submit your feedback online</a>.
                     </p>
                 </div>
 

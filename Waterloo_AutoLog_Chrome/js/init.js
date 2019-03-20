@@ -3,7 +3,14 @@ var baseURL, currURL, options, configs;
 function initAutoLog() {
 
     function init() {
-
+        $(function () {
+            chrome.runtime.sendMessage({
+                action: 'executeScript',
+                data: {
+                    file: 'js/init_idle.js'
+                }
+            });
+        });
     }
 
     baseURL = chrome.runtime.getURL('');
