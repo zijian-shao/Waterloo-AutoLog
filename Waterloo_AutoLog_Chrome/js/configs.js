@@ -13,7 +13,9 @@ function getOptionListDefault() {
         'SITE_IDM': true,
         'SITE_WATCARD': true,
         'SITE_ECEWO': true,
-        'SITE_MYHRINFO': true
+        'SITE_MYHRINFO': true,
+        'SITE_CONNECT': true,
+        'SITE_ADFS': true
     };
 
     return obj;
