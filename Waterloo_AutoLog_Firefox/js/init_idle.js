@@ -173,6 +173,36 @@ function loginMyHRinfo() {
         form.find('input[type="submit"]').trigger('click');
 }
 
+function loginConnect() {
+    var lgnDiv = $('#lgnDiv');
+
+    if (!lgnDiv.length) return;
+
+    lgnDiv.find('#username').val(options.USER_Name);
+    lgnDiv.find('#password').val(options.USER_Password);
+
+    if (lgnDiv.find('#signInErrorDiv').text().trim() !== '')
+        return;
+
+    if (currURL.match(/reason=[0-9]{1}/gi) && !currURL.match(/reason=0/gi))
+        return;
+
+    lgnDiv.find('.signInEnter .signinbutton').trigger('click');
+}
+
+function loginADFS() {
+    var authArea = $('#authArea');
+    if (!authArea.length) return;
+
+    authArea.find('#userNameInput').val(options.USER_Name + '@edu.uwaterloo.ca');
+    authArea.find('#passwordInput').val(options.USER_Password);
+
+    if (authArea.find('#errorText').text().trim() !== '')
+        return;
+
+    authArea.find('#submitButton').trigger('click');
+}
+
 function initAutoLogIdle() {
 
     if (!options.GLB_Enabled)
@@ -183,24 +213,23 @@ function initAutoLogIdle() {
 
     if (currURL.match(/cas\.uwaterloo\.ca\/cas\/login/gi) && options.SITE_CAS) {
         loginCAS();
-    }
-    else if (
+    } else if (
         (currURL.match(/idp\.uwaterloo\.ca\/idp\/profile\/SAML2\/Unsolicited\/SSO/gi)
             || currURL.match(/idp\.uwaterloo\.ca\/idp\/profile\/SAML2\/Redirect\/SSO/gi))
         && options.SITE_IDP) {
         loginQuest();
-    }
-    else if (currURL.match(/idm\.uwaterloo\.ca\/watiam\/login\.js/gi) && options.SITE_IDM) {
+    } else if (currURL.match(/idm\.uwaterloo\.ca\/watiam\/login\.js/gi) && options.SITE_IDM) {
         loginWatIAM();
-    }
-    else if (currURL.match(/ecewo\.uwaterloo\.ca/gi) && options.SITE_ECEWO) {
+    } else if (currURL.match(/ecewo\.uwaterloo\.ca/gi) && options.SITE_ECEWO) {
         loginECEWO();
-    }
-    else if (currURL.match(/watcard\.uwaterloo\.ca\/OneWeb\/Account\/LogOn/gi) && options.SITE_WATCARD) {
+    } else if (currURL.match(/watcard\.uwaterloo\.ca\/OneWeb\/Account\/LogOn/gi) && options.SITE_WATCARD) {
         loginWatCard();
-    }
-    else if (currURL.match(/myhrinfo\.hrms\.uwaterloo\.ca\/psp\/SS\//gi) && options.SITE_MYHRINFO) {
+    } else if (currURL.match(/myhrinfo\.hrms\.uwaterloo\.ca\/psp\/SS\//gi) && options.SITE_MYHRINFO) {
         loginMyHRinfo();
+    } else if (currURL.match(/connect\.uwaterloo\.ca\/owa\/auth\/logon\.aspx/gi) && options.SITE_CONNECT) {
+        loginConnect();
+    } else if (currURL.match(/adfs\.uwaterloo\.ca\/adfs\/ls\//gi) && options.SITE_ADFS) {
+        loginADFS();
     }
 
 }

@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Waterloo AutoLog",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "author": "Zijian Shao",
   "background": {
     "scripts": [
@@ -32,6 +32,8 @@
         "*://idm.uwaterloo.ca/*",
         "*://ecewo.uwaterloo.ca/*",
         "*://watcard.uwaterloo.ca/*",
+        "*://connect.uwaterloo.ca/*",
+        "*://adfs.uwaterloo.ca/*",
         "*://myhrinfo.hrms.uwaterloo.ca/*"
       ],
       "run_at": "document_start"
@@ -54,6 +56,8 @@
     "*://idm.uwaterloo.ca/*",
     "*://ecewo.uwaterloo.ca/*",
     "*://watcard.uwaterloo.ca/*",
+    "*://connect.uwaterloo.ca/*",
+    "*://adfs.uwaterloo.ca/*",
     "*://myhrinfo.hrms.uwaterloo.ca/*"
   ],
   "short_name": "Waterloo AutoLog",
