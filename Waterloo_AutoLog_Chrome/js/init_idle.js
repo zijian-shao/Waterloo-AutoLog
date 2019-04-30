@@ -194,7 +194,10 @@ function loginADFS() {
     var authArea = $('#authArea');
     if (!authArea.length) return;
 
-    authArea.find('#userNameInput').val(options.USER_Name + '@edu.uwaterloo.ca');
+    if (currURL.match(/SAMLRequest/gi))
+        authArea.find('#userNameInput').val(options.USER_Name + '@uwaterloo.ca');
+    else
+        authArea.find('#userNameInput').val(options.USER_Name + '@edu.uwaterloo.ca');
     authArea.find('#passwordInput').val(options.USER_Password);
 
     if (authArea.find('#errorText').text().trim() !== '')
