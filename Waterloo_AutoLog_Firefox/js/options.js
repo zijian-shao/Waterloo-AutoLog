@@ -72,7 +72,7 @@ function initOptions() {
 
             for (var key in items) {
 
-                optionElem = $('input[data-option-name="' + key + '"]');
+                optionElem = $('[data-option-name="' + key + '"]');
 
                 switch (key) {
 
@@ -84,6 +84,10 @@ function initOptions() {
                     case 'USER_Password':
                     case 'USER_CardPIN':
                         optionElem.val(decrypt(items[key], items.GLB_HashKey));
+                        break;
+
+                    case 'USER_Extension':
+                        optionElem.children('option[value="' + items[key] + '"]').prop('selected', true);
                         break;
 
                     default:
@@ -146,9 +150,7 @@ function initOptions() {
                     break;
 
             }
-        }
-
-        else if (inputType == 'radio') {
+        } else if (inputType == 'radio') {
 
             switch (optType) {
                 // save "value" attr of the radio
@@ -216,6 +218,7 @@ function initOptions() {
             var name = $('#user-name');
             var password = $('#user-password');
             var pin = $('#user-cardpin');
+            var extension = $('#user-extension');
 
             var alertInfo = '';
             var hasError = false;
@@ -256,7 +259,7 @@ function initOptions() {
                 obj['USER_Name'] = name.val();
                 obj['USER_Password'] = encrypt(password.val(), items.GLB_HashKey);
                 obj['USER_CardPIN'] = encrypt(pin.val(), items.GLB_HashKey);
-
+                obj['USER_Extension'] = Number(extension.val());
                 saveOption(obj);
             });
 
@@ -314,7 +317,7 @@ function initOptions() {
         });
     }
 
-    $(window).on('load',function (e) {
+    $(window).on('load', function (e) {
 
         $('*[data-href]').each(function (idx, elem) {
             $(elem).attr('href', getLink($(elem).attr('data-href')));

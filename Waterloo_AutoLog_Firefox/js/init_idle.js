@@ -194,10 +194,16 @@ function loginADFS() {
     var authArea = $('#authArea');
     if (!authArea.length) return;
 
-    if (currURL.match(/SAMLRequest/gi))
-        authArea.find('#userNameInput').val(options.USER_Name + '@uwaterloo.ca');
-    else
+    // if (currURL.match(/SAMLRequest/gi))
+    //     authArea.find('#userNameInput').val(options.USER_Name + '@uwaterloo.ca');
+    // else
+    //     authArea.find('#userNameInput').val(options.USER_Name + '@edu.uwaterloo.ca');
+
+    if (options.USER_Extension === 0)
         authArea.find('#userNameInput').val(options.USER_Name + '@edu.uwaterloo.ca');
+    else
+        authArea.find('#userNameInput').val(options.USER_Name + '@uwaterloo.ca');
+
     authArea.find('#passwordInput').val(options.USER_Password);
 
     if (authArea.find('#errorText').text().trim() !== '')
