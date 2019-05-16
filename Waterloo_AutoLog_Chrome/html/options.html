@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css?family=Muli:200,400,800" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/options.css">
 </head>
 <body>
@@ -49,8 +50,14 @@
                     <input type="text" id="user-id" minlength="8" maxlength="8" class="input-box"
                            data-option-name="USER_ID" placeholder="Student ID">
                     <!-- WatIAM ID -->
-                    <input type="text" id="user-name" minlength="4" maxlength="50" class="input-box"
-                           data-option-name="USER_Name" placeholder="WatIAM ID">
+                    <div class="option-group user-name-group">
+                        <input type="text" id="user-name" minlength="4" maxlength="10" class="input-box"
+                               data-option-name="USER_Name" placeholder="WatIAM ID">
+                        <select id="user-extension" class="user-extension" data-option-name="USER_Extension">
+                            <option value="0">@edu.uwaterloo.ca</option>
+                            <option value="1">@uwaterloo.ca</option>
+                        </select>
+                    </div>
                     <!-- Password -->
                     <input type="password" id="user-password" minlength="4" maxlength="50"
                            class="input-box" data-option-name="USER_Password" placeholder="Password">
