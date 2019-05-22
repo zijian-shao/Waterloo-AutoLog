@@ -237,7 +237,7 @@ function initAutoLogIdle() {
         loginMyHRinfo();
     } else if (currURL.match(/connect\.uwaterloo\.ca\/owa\/auth\/logon\.aspx/gi) && options.SITE_CONNECT) {
         loginConnect();
-    } else if (currURL.match(/adfs\.uwaterloo\.ca\/adfs\/ls\//gi) && options.SITE_ADFS) {
+    } else if (currURL.match(/adfs\.uwaterloo\.ca\/adfs\//gi) && options.SITE_ADFS) {
         loginADFS();
     }
 
