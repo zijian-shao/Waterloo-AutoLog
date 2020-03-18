@@ -225,11 +225,12 @@
                     <p>You can check the source code on GitHub at any time. See related links in the section
                         below.</p>
                     <hr>
-                    <p>The extension uses "chrome.local.storage" to store your settings locally in <strong>Profile
-                        Path</strong>.</p>
-                    <p>Visit <strong>chrome://version</strong> to get detailed information.</p>
+                    <p>The extension uses "<span id="localstorage-api"></span>" to store your settings locally in
+                        <strong>Profile Path</strong>.</p>
+                    <p>Visit <strong id="browser-version"></strong> to get detailed information.</p>
                     <p>The default profile on Windows 10 is located at (depends on system configuration):<br>
-                        <span class="break-word"><strong>C:\Users\<span style="color:#fab525">user_name</span>\AppData\Local\Google\Chrome\User Data\Default</strong></span>.
+                        <span class="break-word"><strong>C:\Users\<span style="color:#fab525">user_name</span>\AppData\Local\<span
+                                id="localstorage-path"></span>\User Data\Default</strong></span>.
                     </p>
                     <p>For lab computers, <span class="break-word"><strong>C:\Users\<span style="color:#fab525">user_name</span></strong></span>
                         or any private storage space (e.g. <strong>N:\</strong>) can only be accessed by yourself and
@@ -258,7 +259,7 @@
                 <!-- Links -->
                 <a class="btn btn-success inline-block" data-href="donate" target="_blank">Donate</a>
                 <a class="btn btn-primary inline-block" data-href="github" target="_blank">GitHub</a>
-                <a class="btn btn-primary inline-block" data-href="autologStore" target="_blank">Chrome Web Store</a>
+                <a class="btn btn-primary inline-block" data-href="autologStore" target="_blank">Store</a>
 
                 <hr>
 
@@ -266,7 +267,7 @@
                 <div class="group-title">Notes</div>
                 <div class="paragraph">
                     <p>If you like this extension, please <a data-href="autologStore" target="_blank">rate and leave a
-                        comment</a> in Chrome Web Store.</p>
+                        comment</a> in the store.</p>
                     <p>Don't use other auto login extensions together to avoid unexpected behaviors.</p>
                     <p>Login entrances may change at any time, thus the extension may not function properly.</p>
                     <p>If you have any questions regarding this extension, please email me at <a data-href="mailTo">sam.zj.shao@gmail.com</a>

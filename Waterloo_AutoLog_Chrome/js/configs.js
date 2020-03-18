@@ -24,16 +24,32 @@ function getOptionListDefault() {
 }
 
 function getLink(key) {
+    var ua = navigator.userAgent;
     var list = {
-        darklightStore: 'https://chrome.google.com/webstore/detail/learn-darklight/lhodieepeghcemhpbloffmljoklaklho',
-        azureStore: 'https://chrome.google.com/webstore/detail/waterlooworks-azure/peeaakkcmdoeljddgdkcailflcballmm',
-        autologStore: 'https://chrome.google.com/webstore/detail/waterloo-autolog/ncpmlgiinkikhgijoplpnjggobinhkpl',
-        raspberryStore: 'https://chrome.google.com/webstore/detail/quest-raspberry/ifhnmgllkaeebiklhakndljclagikoak',
+        darklightStore: '',
+        azureStore: '',
+        autologStore: '',
+        raspberryStore: '',
         feedback: 'https://docs.google.com/forms/d/e/1FAIpQLSf3Wl_Jz8vKXw1xKaFEyeSqQr_wvTaAqazaBgcRoxnhhJG4Xw/viewform?usp=pp_url&entry.332394019=@@extVersion@@&entry.1864752170=@@browser@@&entry.413002758=@@os@@',
         officialWebsite: 'https://www.zijianshao.com/autolog/',
         github: 'https://github.com/SssWind/Waterloo-AutoLog',
         donate: 'https://www.paypal.me/zjshao',
-        mailTo: 'mailto:sam.zj.shao@gmail.com?Subject=Waterloo Autolog Extension'
+        mailTo: 'mailto:sam.zj.shao@gmail.com?Subject=Waterloo Autolog Extension',
+        privacy: 'https://www.zijianshao.com/autolog/privacy.html'
     };
+
+    if (ua.indexOf('Edge') !== -1 || ua.indexOf('Edg') !== -1) {
+        // edge
+        list['darklightStore'] = 'https://microsoftedge.microsoft.com/addons/detail/gniehfhhoajdjieojgojjgbcochajole';
+        list['azureStore'] = 'https://microsoftedge.microsoft.com/addons/detail/bjkcklpgffonojilhdfbjbifgpacajmm';
+        list['autologStore'] = 'https://microsoftedge.microsoft.com/addons/detail/eifpbkdegnmkokbngeifkmmkjmimaogb';
+        list['raspberryStore'] = 'https://microsoftedge.microsoft.com/addons/detail/bbhlapokfenllaokgocokaemclmncafk';
+    } else {
+        // chrome
+        list['darklightStore'] = 'https://chrome.google.com/webstore/detail/learn-darklight/lhodieepeghcemhpbloffmljoklaklho';
+        list['azureStore'] = 'https://chrome.google.com/webstore/detail/waterlooworks-azure/peeaakkcmdoeljddgdkcailflcballmm';
+        list['autologStore'] = 'https://chrome.google.com/webstore/detail/waterloo-autolog/ncpmlgiinkikhgijoplpnjggobinhkpl';
+        list['raspberryStore'] = 'https://chrome.google.com/webstore/detail/quest-raspberry/ifhnmgllkaeebiklhakndljclagikoak';
+    }
     return list[key];
 }

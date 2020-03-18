@@ -28,6 +28,9 @@ function initOptions() {
             }
             M = M[2] ? [M[1], M[2]] : [navigator.appName, navigator.appVersion, '-?'];
             if ((tem = ua.match(/version\/(\d+)/i)) != null) M.splice(1, 1, tem[1]);
+            if (ua.indexOf('Edge') !== -1 || ua.indexOf('Edg') !== -1) {
+                M[0] = 'Edge';
+            }
             return {name: M[0], version: M[1]};
         }
 
@@ -234,11 +237,11 @@ function initOptions() {
                 hasError = true;
             }
 
-            if (password.val() == '') {
+            if (password.val().length === 0) {
                 alertInfo += '- Password is empty. Forms won\'t be submitted automatically.\r\n';
             }
 
-            if (pin.val() == '') {
+            if (pin.val().length === 0) {
                 alertInfo += '- WatCard PIN is empty. Forms won\'t be submitted automatically.\r\n';
             }
 
@@ -246,7 +249,7 @@ function initOptions() {
                 alert('Save failed!\r\n' + alertInfo);
                 return;
             } else {
-                if (alertInfo != '') {
+                if (alertInfo.length > 0) {
                     alert(alertInfo);
                 }
             }
@@ -330,6 +333,19 @@ function initOptions() {
         // feedback
         $('#feedback-link').attr('href', getFeedbackLink());
 
+        // storage location
+        var ua = navigator.userAgent;
+        if (ua.indexOf('Edge') !== -1 || ua.indexOf('Edg') !== -1) {
+            // edge
+            $('#localstorage-api').text('browser.local.storage');
+            $('#browser-version').text('edge://version');
+            $('#localstorage-path').text('Microsoft\\Edge');
+        } else {
+            // chrome
+            $('#localstorage-api').text('chrome.local.storage');
+            $('#browser-version').text('chrome://version');
+            $('#localstorage-path').text('Google\\Chrome');
+        }
     });
 
     window.addEventListener("hashchange", onHashChange, false);
