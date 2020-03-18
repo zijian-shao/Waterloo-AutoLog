@@ -4,6 +4,8 @@ Automatic login for Quest, WaterlooWorks, Learn, WatIAM, WatCard, myHRinfo and m
 ## Install
 Chrome: [View in Chrome Web Store](https://chrome.google.com/webstore/detail/waterloo-autolog/ncpmlgiinkikhgijoplpnjggobinhkpl "Waterloo AutoLog (Chrome Version)")
 
+Edge: [View in Edge Addons](https://microsoftedge.microsoft.com/addons/detail/eifpbkdegnmkokbngeifkmmkjmimaogb "Waterloo AutoLog (Edge Version)")
+
 Firefox: [View in Firefox Addons](https://addons.mozilla.org/addon/waterloo-autolog/ "Waterloo AutoLog (Firefox Version)")
 
 ## Introduction
