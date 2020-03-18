@@ -27,7 +27,7 @@ function loginQuest() {
     if ($('p.form-error').length)
         return;
 
-    if (options.USER_Password != '')
+    if (options.USER_Password.length > 0)
         form.find('input[type="submit"]').first().trigger('click');
 }
 
@@ -42,7 +42,7 @@ function loginWatIAM() {
     if ($('span[id="loginForm:loginErrors"]').length)
         return;
 
-    if (options.USER_Password != '')
+    if (options.USER_Password.length > 0)
         $('input[id="loginForm:loginButton"]').trigger('click');
 }
 
@@ -55,63 +55,96 @@ function loginECEWO() {
 
     // ECE Survey f_0_1_0 Survey
     if (currURL.match(/Survey/gi)) {
-        form = $('form[name="f_0_1_0"]');
+        var fontTxt = $("font:contains('Please enter your login and password')");
+        if (fontTxt.length > 0) {
+            form = fontTxt.closest('form');
+        }
     }
     // Course Book f_1_3_9_1 CourseBook
     else if (currURL.match(/CourseBook/gi)) {
-        form = $('form[name="f_1_3_9_1"]');
+        var fontTxt = $("font:contains('Please enter your login and password')");
+        if (fontTxt.length > 0) {
+            form = fontTxt.closest('form');
+        }
     }
     // Student Blocks f_3 SBO
     else if (currURL.match(/SBO/gi)) {
-        form = $('form[name="f_3"]');
+        form = $('form[action="https://ecewo.uwaterloo.ca/cgi-bin/WebObjects/SBO.woa/wa/login"]');
     }
     // FOEAUA Online f_9 FOEAUA
     else if (currURL.match(/FOEAUA/gi)) {
-        form = $('form[name="f_9"]');
+        var fontTxt = $("h1:contains('Please enter your User ID and Password')");
+        if (fontTxt.length > 0) {
+            form = fontTxt.closest('form');
+        }
     }
     // ECE Work Requests x WorkRequest
     else if (currURL.match(/WorkRequest/gi)) {
-        return;
+        var fontTxt = $("h1:contains('Please enter your User ID and Password')");
+        if (fontTxt.length > 0) {
+            form = fontTxt.closest('form');
+        }
     }
     // TA application Online f_0_1_7_0 TAO
     else if (currURL.match(/TAO/gi)) {
-        form = $('form[name="f_0_1_7_0"]');
+        var fontTxt = $("label:contains('Password:')");
+        if (fontTxt.length > 0) {
+            form = fontTxt.closest('form');
+        }
     }
     // Graduate Program Extensions f_11 ProgExt
     else if (currURL.match(/ProgExt/gi)) {
-        form = $('form[name="f_11"]');
+        var fontTxt = $("h1:contains('Please enter your User ID and Password')");
+        if (fontTxt.length > 0) {
+            form = fontTxt.closest('form');
+        }
     }
     // Preliminary Course Selection Survey f_9 PCSS
     else if (currURL.match(/PCSS/gi)) {
-        form = $('form[name="f_9"]');
+        var fontTxt = $("h1:contains('Please enter your User ID and Password')");
+        if (fontTxt.length > 0) {
+            form = fontTxt.closest('form');
+        }
     }
     // Term Activity Reports f_11 WebStar
     else if (currURL.match(/WebStar/gi)) {
-        form = $('form[name="f_11"]');
+        var fontTxt = $("h1:contains('Please enter your User ID and Password')");
+        if (fontTxt.length > 0) {
+            form = fontTxt.closest('form');
+        }
     }
-    // ECE Vacations f Vacation
-    else if (currURL.match(/Vacation/gi)) {
-        form = $('form[name="f"]');
+    // ECE WebForms
+    else if (currURL.match(/WebForms/gi)) {
+        var fontTxt = $("h1:contains('Please enter your User ID and Password')");
+        if (fontTxt.length > 0) {
+            form = fontTxt.closest('form');
+        }
     }
     // ECE MyVote f_1_3_1 MyVote
     else if (currURL.match(/MyVote/gi)) {
-        form = $('form[name="f_1_3_1"]');
+        return;
+        // form = $('form[name="f_1_3_1"]');
     }
     // ECE Work Reports f_5 ECEWorkReports
     else if (currURL.match(/ECEWorkReports/gi)) {
-        form = $('form[name="f_5"]');
+        var fontTxt = $("b:contains('Password:')");
+        if (fontTxt.length > 0) {
+            form = fontTxt.closest('form');
+        }
     }
     // NanoEng Work Reports f_5 NEWorkReports
     else if (currURL.match(/NEWorkReports/gi)) {
-        form = $('form[name="f_5"]');
+        var fontTxt = $("b:contains('Password:')");
+        if (fontTxt.length > 0) {
+            form = fontTxt.closest('form');
+        }
     }
     // MTE Work Reports f_5 MTEWorkReports
     else if (currURL.match(/MTEWorkReports/gi)) {
-        form = $('form[name="f_5"]');
-    }
-    // FYDP Inventory x FYDP-Inventory
-    else if (currURL.match(/FYDP-Inventory/gi)) {
-        return;
+        var fontTxt = $("b:contains('Password:')");
+        if (fontTxt.length > 0) {
+            form = fontTxt.closest('form');
+        }
     }
 
     if (!form.length)
@@ -135,7 +168,7 @@ function loginECEWO() {
     )
         return;
 
-    if (options.USER_Password != '')
+    if (options.USER_Password.length > 0)
         submit.trigger('click');
 
 }
@@ -151,7 +184,7 @@ function loginWatCard() {
     if ($('div.validation-summary-errors').length)
         return;
 
-    if (options.USER_CardPIN != '')
+    if (options.USER_CardPIN.length > 0)
         form.find('button[type="submit"]').first().trigger('click');
 }
 
@@ -169,7 +202,7 @@ function loginMyHRinfo() {
     if (currURL.match(/cmd=logout/gi))
         return;
 
-    if (options.USER_Password != '')
+    if (options.USER_Password.length > 0)
         form.find('input[type="submit"]').trigger('click');
 }
 
@@ -181,7 +214,7 @@ function loginConnect() {
     lgnDiv.find('#username').val(options.USER_Name);
     lgnDiv.find('#password').val(options.USER_Password);
 
-    if (lgnDiv.find('#signInErrorDiv').text().trim() !== '')
+    if (lgnDiv.find('#signInErrorDiv').text().trim().length > 0)
         return;
 
     if (currURL.match(/reason=[0-9]{1}/gi) && !currURL.match(/reason=0/gi))
@@ -206,7 +239,7 @@ function loginADFS() {
 
     authArea.find('#passwordInput').val(options.USER_Password);
 
-    if (authArea.find('#errorText').text().trim() !== '')
+    if (authArea.find('#errorText').text().trim().length > 0)
         return;
 
     authArea.find('#submitButton').trigger('click');
@@ -217,7 +250,7 @@ function initAutoLogIdle() {
     if (!options.GLB_Enabled)
         return;
 
-    if (options.USER_Name == '' || options.USER_Password == '')
+    if (options.USER_Name.length === 0 || options.USER_Password.length === 0)
         return;
 
     if (currURL.match(/cas\.uwaterloo\.ca\/cas\/login/gi) && options.SITE_CAS) {

@@ -33,7 +33,8 @@ function getLink(key) {
         officialWebsite: 'https://www.zijianshao.com/autolog/',
         github: 'https://github.com/SssWind/Waterloo-AutoLog',
         donate: 'https://www.paypal.me/zjshao',
-        mailTo: 'mailto:sam.zj.shao@gmail.com?Subject=Waterloo Autolog Extension'
+        mailTo: 'mailto:sam.zj.shao@gmail.com?Subject=Waterloo Autolog Extension',
+        privacy: 'https://www.zijianshao.com/autolog/privacy.html'
     };
     return list[key];
 }
