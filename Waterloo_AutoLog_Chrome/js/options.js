@@ -88,9 +88,9 @@ function initOptions() {
                         optionElem.val(decrypt(items[key], items.GLB_HashKey));
                         break;
 
-                    case 'USER_Extension':
-                        optionElem.children('option[value="' + items[key] + '"]').prop('selected', true);
-                        break;
+                    // case 'USER_Extension':
+                    //     optionElem.children('option[value="' + items[key] + '"]').prop('selected', true);
+                    //     break;
 
                     default:
                         optionElem.prop('checked', items[key]);
@@ -261,7 +261,7 @@ function initOptions() {
                 obj['USER_Name'] = name.val();
                 obj['USER_Password'] = encrypt(password.val(), items.GLB_HashKey);
                 obj['USER_CardPIN'] = encrypt(pin.val(), items.GLB_HashKey);
-                obj['USER_Extension'] = Number(extension.val());
+                // obj['USER_Extension'] = Number(extension.val());
                 saveOption(obj);
             });
 
@@ -295,6 +295,9 @@ function initOptions() {
                         $('#user-save').trigger('click');
                         break;
                 }
+            } else if (parseInt(event.keyCode) === 13) {
+                event.preventDefault();
+                $('#user-save').trigger('click');
             }
         });
 

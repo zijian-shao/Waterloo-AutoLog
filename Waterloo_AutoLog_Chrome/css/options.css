@@ -720,7 +720,7 @@ label.checkbox-label {
     left: 13px;
 }
 
-.user-name-group {
+.user-name-group, .tip-group {
     position: relative;
     margin-bottom: 20px;
 }
@@ -737,6 +737,19 @@ label.checkbox-label {
 .user-name-group .input-box:hover, .user-name-group .input-box:focus {
     box-shadow: inset 0 0 0 1px #fab525;
     z-index: 10;
+}
+
+.tip-group .input-box {
+    margin: 0;
+}
+
+.tip-group label {
+    position: absolute;
+    top:0;
+    right: 25px;
+    line-height: 50px;
+    font-size:0.9rem;
+    color: #666;
 }
 
 .user-extension {
