@@ -232,10 +232,10 @@ function loginADFS() {
     // else
     //     authArea.find('#userNameInput').val(options.USER_Name + '@edu.uwaterloo.ca');
 
-    if (options.USER_Extension === 0)
-        authArea.find('#userNameInput').val(options.USER_Name + '@edu.uwaterloo.ca');
-    else
-        authArea.find('#userNameInput').val(options.USER_Name + '@uwaterloo.ca');
+    // if (options.USER_Extension === 0)
+    //     authArea.find('#userNameInput').val(options.USER_Name + '@edu.uwaterloo.ca');
+    // else
+    authArea.find('#userNameInput').val(options.USER_Name + '@uwaterloo.ca');
 
     authArea.find('#passwordInput').val(options.USER_Password);
 

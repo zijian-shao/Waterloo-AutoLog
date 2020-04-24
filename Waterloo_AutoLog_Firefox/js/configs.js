@@ -8,7 +8,7 @@ function getOptionListDefault() {
         'USER_Name': '',
         'USER_Password': '',
         'USER_CardPIN': '',
-        'USER_Extension': 0,
+        // 'USER_Extension': 0,
         'SITE_CAS': true,
         'SITE_IDP': true,
         'SITE_IDM': true,
